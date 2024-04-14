@@ -1,0 +1,63 @@
+@import './colors.scss';
+@import './board.scss';
+@import './CardApp.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position:relative;
+  // display: flex;
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--content-background-color);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font: 112.5%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button, input {
+  all: unset;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  background: #fcfcfc;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+@media (min-width: 1024px) {
+  
+}

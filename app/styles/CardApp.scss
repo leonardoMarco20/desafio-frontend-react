@@ -1,0 +1,8 @@
+.card-app {
+  display: flex;
+  flex-direction: column;
+
+  &__header, &__actions {
+    padding: .5rem;
+  }
+}
