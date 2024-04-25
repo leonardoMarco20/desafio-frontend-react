@@ -47,7 +47,7 @@ export default function ListApp() {
           : <div data-cy="empty-list" className="list-app__empty-message">Nenhum resultado encontrado</div>
         }
 
-        {/* <PaginationApp data-cy="pagination" v-if="charactersList.length" /> */}
+        {charactersList.length && <PaginationApp />}
         {/* <LoadingApp data-cy="loading" v-show="isLoading" label="Loading..."/> */}
       </div>
     </>
