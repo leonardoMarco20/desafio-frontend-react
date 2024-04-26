@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Character } from '../types/DataType'
+import { CharacterApiResponse } from './CharacterDataType'
 
 const API = axios.create({
   // baseURL: `https://rickandmortyapi.com/api/character/?page=${currentPage}&status=${status}&name=${name}`,
@@ -9,15 +9,15 @@ const API = axios.create({
   }
 });
 
-export const fetchCharacters = async (page: number = 1, status?: string, name?: string): Promise<Character[]> => {
+export const fetchCharacters = async (page: number = 1, status?: string, name?: string): Promise<CharacterApiResponse> => {
   const params = new URLSearchParams({
     page: page.toString(),
     ...(status ? { status } : {}),
     ...(name ? { name } : {}) 
   });
 
-  const response = await API.get(`/?${params.toString()}`)
-  return response.data.results;
+  const {data} = await API.get(`/?${params.toString()}`)
+  return data as CharacterApiResponse
 };
 
 export default API;

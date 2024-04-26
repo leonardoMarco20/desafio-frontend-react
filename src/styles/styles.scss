@@ -1,6 +1,10 @@
 @import './colors.scss';
 @import './board.scss';
+@import './ListApp.scss';
+@import './BtnApp.scss';
 @import './CardApp.scss';
+@import './CharacterCardApp.scss';
+@import './PaginationApp.scss';
 
 *,
 *::before,
@@ -56,6 +60,24 @@ a,
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
+}
+
+header, main {
+  padding: .5rem 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+main {
+  background: var(--content-background-color);
+  color: var(--content-text-color);
+  display: flex;
+  flex-grow: 1;
 }
 
 @media (min-width: 1024px) {

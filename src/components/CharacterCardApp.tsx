@@ -3,7 +3,7 @@
 import axios from 'axios';
 import CardApp from './CardApp';
 import React, { useEffect, useState } from 'react';
-import { Character } from '../types/DataType'
+import { Character } from '../types/CharacterDataType'
 
 interface Location {
   name: string,
@@ -28,18 +28,18 @@ const CharacterCardApp: React.FC<CharacterCardApp> = ({ character }) => {
     }
   }
 
-  useEffect(() => {
-    if (character.episode) {
-      getFirstSeenIn(character.episode);
-    }
-  }, [character.episode]); // Dependência para re-executar quando o episódio mudar
+  // useEffect(() => {
+  //   if (character.episode) {
+  //     getFirstSeenIn(character.episode);
+  //   }
+  // }, [character.episode]); // Dependência para re-executar quando o episódio mudar
 
 
   const statusIcon = `card-details__status-icon--${character.status.toLowerCase()}`;
 
   return (
     <>
-      <CardApp content ={
+      <CardApp className={`character-card-app character-card-app--${character.status.toLowerCase()}`} content ={
         <div className="character-card-app__content">
           <div className="card-image">
             <img src={character.image} alt={character.name} />
@@ -57,11 +57,11 @@ const CharacterCardApp: React.FC<CharacterCardApp> = ({ character }) => {
             <div className="card-details__content">
               <div className="card-details__content__section">
                 <span className="card-details__subtitle">Last known location:</span>
-                <span>{ character.location.name }</span>
+                {/* <span>{ character.location.name }</span> */}
               </div>
               <div className="card-details__content__section">
                 <span className="card-details__subtitle">First seen in:</span>
-                <span>{ firstSeenIn }</span>
+                {/* <span>{ firstSeenIn }</span> */}
               </div>
             </div>
           </div>

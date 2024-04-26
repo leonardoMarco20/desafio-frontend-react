@@ -8,7 +8,7 @@ import SearchApp from './SearchApp';
 import PaginationApp from './PaginationApp';
 import LoadingApp from './LoadingApp';
 
-import { Character } from '../types/DataType'
+import { Character } from '../types/CharacterDataType'
 
 export default function ListApp() {
   const [charactersList, setCharactersList] = useState<Character[]>([]);
@@ -19,9 +19,9 @@ export default function ListApp() {
     async function loadData() {
       setIsLoading(true);
       try {
-        const characters = await fetchCharacters();
-        console.log(characters)
-        setCharactersList(characters);
+        const {results} = await fetchCharacters();
+        
+        setCharactersList(results);
         setIsLoading(false);
       } catch (err) {
         console.error('Erro ao carregar os dados:', err);
@@ -47,7 +47,7 @@ export default function ListApp() {
           : <div data-cy="empty-list" className="list-app__empty-message">Nenhum resultado encontrado</div>
         }
 
-        {charactersList.length && <PaginationApp />}
+        {charactersList.length && <PaginationApp totalPages={0} />}
         {/* <LoadingApp data-cy="loading" v-show="isLoading" label="Loading..."/> */}
       </div>
     </>

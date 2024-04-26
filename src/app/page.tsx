@@ -1,5 +1,6 @@
-import Board from './components/Board'; 
-import ListApp from './components/ListApp'; 
+import React from 'react';
+import Board from '../components/Board'; 
+import ListApp from '../components/ListApp'; 
 
 export default function startGame() {
   return (<>

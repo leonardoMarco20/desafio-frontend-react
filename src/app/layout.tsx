@@ -3,8 +3,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+//import react because this file is a module
+import React from "react";
+//Provider
+import { StoreProvider } from "../store/StoreProvider";
 // styles
-import "./styles/styles.scss";
+import "../styles/styles.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +24,10 @@ export default function RootLayout({
 }>) {
   
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body className={inter.className}>{children}</body>
+      </html>
+    </StoreProvider>
   );
 }

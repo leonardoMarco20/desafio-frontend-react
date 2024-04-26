@@ -1,0 +1,57 @@
+.pagination-app {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  
+  &__text, select, button {
+    margin-right: 0.5rem;
+    font-weight: 500;
+    color: var(--content-text-color);
+
+    &--focus {
+      color: var(--primary-color);
+    }
+  }
+
+  &__button {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    height: auto;
+    border: none;
+
+    &:hover {
+      color: var(--secondary-color);
+      opacity: .5;
+      box-shadow: 0 0 0 0;
+      background-color: transparent;
+    }
+  }
+  
+  span {
+    cursor: pointer;
+
+    &:hover {
+      color: var(--secondary-color);
+      opacity: .5;
+    }
+  }
+
+  select {
+    background: transparent;
+    border-radius: 0.25rem;
+    appearance: auto;
+    cursor: pointer;
+
+    option {
+      color: var(--text-color);
+      max-height: 40px;
+      overflow: hidden; 
+    }
+
+    .dropdown-menu {
+      height: 40px;
+    }
+  }
+}  

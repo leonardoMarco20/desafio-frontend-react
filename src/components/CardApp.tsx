@@ -1,6 +1,7 @@
 'use client'
 
 import PropTypes from 'prop-types';
+import React from 'react';
 
 interface CardAppProps {
   useHeader?: boolean; // '?' indica que a prop é opcional
@@ -8,6 +9,7 @@ interface CardAppProps {
   content: React.ReactNode; // 'content' é obrigatório
   useActions?: boolean;
   actions?: React.ReactNode;
+  className?: string
 }
 
 const CardApp: React.FC<CardAppProps> = ({ 
@@ -15,11 +17,12 @@ const CardApp: React.FC<CardAppProps> = ({
   header,
   content,
   useActions = false,
+  className = '',
   actions 
 }) => {
   return (
     <>
-      <div className="card-app">
+      <div className={`card-app ${className}`}>
       { useHeader && header && (
         <div className="card-app__header">
           <div>{header}</div>
