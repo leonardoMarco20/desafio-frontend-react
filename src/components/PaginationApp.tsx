@@ -14,25 +14,26 @@ interface PaginationAppProps {
 
 const PaginationApp: React.FC<PaginationAppProps> = () => {
   const dispatch = useDispatch()
-  const {totalPages, currentPage} = useSelector((state: RootState) => state.PaginationSlice);
+  const {totalPages, currentPage} = useSelector((state: RootState) => state.paginationSlice);
   const paginationItems = useSelector(pagination.paginationItemsSelector);
 
   return (
     <div className="pagination-app">
-      <div>{ totalPages }</div>
-      <BtnApp 
-        className="pagination-app__button" 
+      <div>{ currentPage }</div>
+      <BtnApp
+        className="pagination-app__button"
         icon={faAnglesLeft}
-        onClick={() => dispatch(pagination.goToFirstPage())} 
+
+        onClick={() => dispatch(pagination.goToFirstPage())}
         disabled={currentPage === 1} 
       />
-      <BtnApp 
-        className="pagination-app__button" 
-        icon={faChevronLeft} 
-        onClick={() => dispatch(pagination.goToPreviousPagination())} 
-        disabled={currentPage <= 5} 
+      <BtnApp
+        className="pagination-app__button"
+        icon={faChevronLeft}
+        onClick={() => dispatch(pagination.goToPreviousPagination())}
+        disabled={currentPage <= 5}
       />
-      
+
       {paginationItems.map((item) => (
         <div onClick={() => dispatch(pagination.goToPage(item))} key={item} className="pagination-app__button">
           <span className="pagination-app__text">{item}</span>

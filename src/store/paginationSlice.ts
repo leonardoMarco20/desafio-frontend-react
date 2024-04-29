@@ -35,7 +35,7 @@ const paginationSlice = createSlice({
     },
     goToPreviousPagination(state) {
       const prevPage = state.currentPage - 5;
-      state.currentPage = prevPage < 1 ? 1 : prevPage;
+      state.currentPage = prevPage < 1 ? 1 : prevPage;  
     },
     setTotalPages(state, action: PayloadAction<number>) {
       state.totalPages = action.payload;
@@ -59,7 +59,7 @@ export const {
 
 
 // Selectors
-const selectPagination = (state: RootState) => state.PaginationSlice
+const selectPagination = (state: RootState) => state.paginationSlice
 
 export const firstItemPagination = createSelector(
   [selectPagination],

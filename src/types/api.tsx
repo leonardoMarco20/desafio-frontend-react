@@ -2,8 +2,7 @@ import axios from 'axios';
 import { CharacterApiResponse } from './CharacterDataType'
 
 const API = axios.create({
-  // baseURL: `https://rickandmortyapi.com/api/character/?page=${currentPage}&status=${status}&name=${name}`,
-  baseURL: `https://rickandmortyapi.com/api/character`,
+  baseURL: `https://rickandmortyapi.com/api/character/`,
   headers: {
     'Content-Type': 'application/json'
   }
