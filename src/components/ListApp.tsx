@@ -41,9 +41,7 @@ export default function ListApp() {
     <>
       <div className="list-app" >
         {/* <SearchApp data-cy="search" className="list-app__search-app" placeholder="Pesquisar por nome..." /> */}
-        
-        {charactersList.length && <PaginationApp totalPages={0} />}
-        
+          
         { charactersList.length 
           ? <div className="card-list">
               {charactersList.map((character, index) => (
@@ -52,6 +50,8 @@ export default function ListApp() {
             </div>
           : <div data-cy="empty-list" className="list-app__empty-message">Nenhum resultado encontrado</div>
         }
+
+        {charactersList.length && <PaginationApp totalPages={0} />}
 
         {/* <LoadingApp data-cy="loading" v-show="isLoading" label="Loading..."/> */}
       </div>
