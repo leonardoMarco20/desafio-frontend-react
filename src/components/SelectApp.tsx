@@ -1,10 +1,8 @@
 'use client'
 
-import PropTypes from 'prop-types';
 import React, {useEffect, useState, useRef} from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'; 
 
 interface Option {
@@ -16,25 +14,21 @@ interface SelectAppProps {
   onSelectOption: (option: Option)=>{};
   placeholder: string;
   placeholderClass?: string;
-  icon?: IconDefinition;
   options: Option[]
   selectedOption: Option;
   className?: string
-  actions?: React.ReactNode;
 }
 
 const SelectApp: React.FC<SelectAppProps> = ({ 
   onSelectOption,
   placeholder = '',
   placeholderClass = '',
-  icon = faCaretDown,
   options = [],
   selectedOption = {
     label: '',
     value: ''
   },
-  className = '',
-  actions 
+  className = ''
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
