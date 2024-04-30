@@ -1,6 +1,5 @@
 'use client'
 
-import PropTypes from 'prop-types';
 import React from 'react';
 
 interface CardAppProps {
@@ -38,13 +37,5 @@ const CardApp: React.FC<CardAppProps> = ({
     </>
   );
 }
-
-CardApp.propTypes = {
-  useHeader: PropTypes.bool,
-  header: PropTypes.node,
-  content: PropTypes.node.isRequired,
-  useActions: PropTypes.bool,
-  actions: PropTypes.node
-};
 
 export default CardApp;
