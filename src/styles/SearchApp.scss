@@ -1,0 +1,14 @@
+.search-app {
+  display: flex;
+  align-items: center;
+  padding: 1rem .8rem;
+  margin: 0 -1.25rem;
+
+  div,button { 
+    margin: 0 .5rem;
+  }
+
+  &__icon {
+    opacity: .5;
+  }
+}

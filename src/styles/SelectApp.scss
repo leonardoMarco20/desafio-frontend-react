@@ -1,0 +1,59 @@
+.select-app {
+  position: relative;
+  width: 12rem;
+  height: 3rem;
+  border-radius: .5rem;
+  padding: 0 1rem;
+  background: var(--card-background-color);
+  cursor: pointer;
+
+  &__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__placeholder {
+    transition: .5s;
+
+    &--small {
+      font-size: .75rem;
+      opacity: .7;;
+    }
+  }
+
+  &__selected-option {
+    padding: 10px;
+    font-weight: 500;
+  }
+
+  &__options {
+    position: absolute;
+    top: 75%;
+    left: 0;
+    width: 200px;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 0;
+    background: var(--content-background-color);
+    list-style: none;
+    z-index: 10;
+  }
+
+  &__option {
+    cursor: pointer;
+    z-index: 10;
+    padding: 0 1rem;
+
+    &:hover {
+      transition: .5s;
+      background: var(--primary-color);
+    }
+  }
+
+  &--active .custom-select__options {
+    display: block;
+  }
+}

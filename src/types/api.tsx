@@ -4,7 +4,9 @@ import { CharacterApiResponse } from './CharacterDataType'
 const API = axios.create({
   baseURL: `https://rickandmortyapi.com/api/character/`,
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Cache-Control': 'no-cache',
+    'Pragma': 'no-cache'
   }
 });
 

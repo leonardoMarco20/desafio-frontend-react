@@ -6,8 +6,10 @@ import { fetchCharacters } from '../types/api';
 import CharacterCardApp from './CharacterCardApp';
 import SearchApp from './SearchApp';
 import PaginationApp from './PaginationApp';
-import LoadingApp from './LoadingApp';
 
+// import LoadingApp from './LoadingApp';
+
+import * as pagination from '../store/paginationSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../store/store';
 import { setCharactersList } from '../store/charactersSlice';
@@ -16,6 +18,8 @@ export default function ListApp() {
   const dispatch = useDispatch()
   const { charactersList } = useSelector((state: RootState) => state.charactersSlice);
   const currentPage = useSelector((state: RootState) => state.paginationSlice.currentPage);
+  const status = useSelector((state: RootState) => state.searchSlice.filter.status);
+  const name = useSelector((state: RootState) => state.searchSlice.name);
   
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -24,9 +28,9 @@ export default function ListApp() {
     async function loadData() {
       setIsLoading(true);
       try {
-        const {results} = await fetchCharacters(currentPage);
+        const {results, info} = await fetchCharacters(currentPage, status.value, name);
+        dispatch(pagination.setTotalPages(info.pages)) 
         dispatch(setCharactersList(results));
-        console.log(charactersList)
         setIsLoading(false);
       } catch (err) {
         console.error('Erro ao carregar os dados:', err);
@@ -36,11 +40,31 @@ export default function ListApp() {
     }
     loadData();
   }, [currentPage]);
+  
+  useEffect(() => {
+    dispatch(pagination.setCurrentPage(1)) 
+    async function loadData() {
+      setIsLoading(true);
+      try {
+        const {results, info} = await fetchCharacters(1, status.value, name);
+        dispatch(pagination.setTotalPages(info.pages)) 
+        dispatch(setCharactersList(results));
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Erro ao carregar os dados:', err);
+        setError('Falha ao buscar dados');
+        setIsLoading(false);
+      }
+    }
+    loadData();
+  }, [status, name]);
+  
+  
 
   return (
     <>
       <div className="list-app" >
-        {/* <SearchApp data-cy="search" className="list-app__search-app" placeholder="Pesquisar por nome..." /> */}
+        <SearchApp className="list-app__search-app" placeholder="Pesquisar por nome..." />
           
         { charactersList.length 
           ? <div className="card-list">

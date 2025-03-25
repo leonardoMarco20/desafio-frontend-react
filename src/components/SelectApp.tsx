@@ -2,16 +2,12 @@
 
 import React, {useEffect, useState, useRef} from 'react';
 
+import { Option } from '../types/SelectOptions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'; 
 
-interface Option {
-  label: string,
-  value: string
-}
-
 interface SelectAppProps {
-  onSelectOption: (option: Option)=>{};
+  onSelectOption: (option: Option)=> void;
   placeholder: string;
   placeholderClass?: string;
   options: Option[]

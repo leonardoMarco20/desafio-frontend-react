@@ -1,7 +1,6 @@
 'use client'
 
 import React, {useEffect, useState} from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
@@ -49,7 +48,7 @@ const InputApp: React.FC<InputAppProps> = ({
             onChange={handleInputChange} 
             placeholder={placeholder} 
           />
-          { inputValue && <FontAwesomeIcon icon={faCircleXmark} onClick={()=>{ clear }} /> }
+          { inputValue && <FontAwesomeIcon className="input-app__clear" icon={faCircleXmark} onClick={clear} /> }
         </div>
       </div>
     </>

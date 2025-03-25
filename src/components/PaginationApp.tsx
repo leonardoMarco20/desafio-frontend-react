@@ -17,17 +17,6 @@ const PaginationApp: React.FC<PaginationAppProps> = () => {
   const {totalPages, currentPage} = useSelector((state: RootState) => state.paginationSlice);
   const paginationItems = useSelector(pagination.paginationItemsSelector);
 
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const { info } = await fetchCharacters()
-        dispatch(pagination.setTotalPages(info.pages)) 
-      } catch (err) {
-        console.error('Erro ao carregar os dados:', err);
-      }
-    }
-    loadData();
-  });
   return (
     <div className="pagination-app">
       <BtnApp

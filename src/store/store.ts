@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import paginationSlice from './paginationSlice'
 import charactersSlice from './charactersSlice';
+import searchSlice from './searchSlice';
 
 const store = configureStore({
   reducer: {
     paginationSlice,
-    charactersSlice
+    charactersSlice,
+    searchSlice
   }
 })
 
